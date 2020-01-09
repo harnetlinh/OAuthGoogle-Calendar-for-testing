@@ -9,7 +9,7 @@ This project is created for studying so it has a lot of bugs, the code is not cl
 
 ### Features!
   - View, insert, update, delete events of google calendar
-<img src="https://github.com/harnetlinh/OAuthGoogle-Calendar-for-testing/blob/master/image/main.jpg " width="400" />
+<img src="https://github.com/harnetlinh/OAuthGoogle-Calendar-for-testing/blob/master/image/main.jpg" width="400" />
 
 # Cross-compile and deploy Qt 5.12 for Raspberry Pi
 ### Install OS for RaspberryPi
