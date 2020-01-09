@@ -12,5 +12,12 @@ This project is created for studying so it has a lot of bugs, the code is not cl
 <img src="https://github.com/harnetlinh/OAuthGoogle-Calendar-for-testing/blob/master/image/main.jpg " width="400" />
 
 # Cross-compile and deploy Qt 5.12 for Raspberry Pi
-//writing
+### Install OS for RaspberryPi
+### Config on RPi
+```
+sudo rpi-update
+sudo apt-get update
+sudo reboot
 
+```
+fgdg
