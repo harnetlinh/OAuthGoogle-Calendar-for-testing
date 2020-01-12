@@ -11,17 +11,17 @@ This project is created for studying so it has a lot of bugs, the code is not cl
   - View, insert, update, delete events of google calendar
 <img src="https://github.com/harnetlinh/OAuthGoogle-Calendar-for-testing/blob/master/image/main.jpg" width="400" />
 
-# Cross-compile and deploy Qt 5.12 for Raspberry Pi
-### Install OS for RaspberryPi
-### Config on RPi
-#### Update RPi
+# 1.Cross-compile and deploy Qt 5.12 for Raspberry Pi
+### 1.1 Install OS for RaspberryPi
+### 1.2 Config on RPi
+#### 1.2.1 Update RPi
 ```
 sudo rpi-update
 sudo apt-get update
 sudo reboot
 
 ```
-#### Install libs
+#### 1.2.2 Install libs
 ```
 sudo apt install libxkbcommon-dev
 
@@ -44,7 +44,7 @@ sudo chown pi:pi /usr/local/qt5pi
 sudo  reboot
 
 ```
-### Create build-kit RPi on Ubuntu
+### 1.3 Create build-kit RPi on Ubuntu
 Before do this part, please turn on SSH on RPi configuration
 ```
 mkdir ~/raspi
@@ -74,7 +74,7 @@ chmod +x sysroot-relativelinks.py
 ```
 > To get ip address, go to terminal: `ip address`
 
-### Build source on Ubuntu
+### 1.4 Build source on Ubuntu
 Go to https://download.qt.io/archive/qt/ to download qt source
 I use qt 5.12.6 for my project
 Go to file download, extract it.
@@ -104,19 +104,19 @@ After installing is done, we need to update for qt5pi
 rsync -avz --rsync-path="sudo rsync" qt5pi pi@192.168.1.180:/usr/local
 ```
 
-### Config on QtCreator
+### 1.5 Config on QtCreator
 After install QtCreator, we need to create new kit for compiler:
-#### Compiler C/C++:
+#### 1.5.1 Compiler C/C++:
 ```
 /home/longnm/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++
 /home/longnm/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc
 ```
-#### QT Version
+#### 1.5.2 QT Version
 ```
 ~/raspi/qt5/bin/qmake
 ```
 
-### Create filemake and send to machine
+### 1.6 Create filemake and send to machine
 
 ```
 cd {name code folder}
