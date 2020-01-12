@@ -77,4 +77,51 @@ chmod +x sysroot-relativelinks.py
 ### Build source on Ubuntu
 Go to https://download.qt.io/archive/qt/ to download qt source
 I use qt 5.12.6 for my project
+Go to file download, extract it.
+
+Firtly, config
+```
+./configure -release -opengl es2 -device linux-rasp-pi3-g++ -device-option CROSS_COMPILE=~/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf- -sysroot ~/raspi/sysroot -opensource -eglfs -openssl -openssl-linked -xcb -qt-xcb -system-xcb -xkbcommon -confirm-license -reduce-exports -make libs -prefix /usr/local/qt5pi -extprefix ~/raspi/qt5pi -hostprefix ~/raspi/qt5 -v -no-use-gold-linker
+
+make -j2
+
+make install
+```
+
+repeat for all: qtimageformats, qtcharts, qtconnectivity, qtdeclarative, qtscxml, qtscript|, qtmultimedia, qtquickcontrols, qtquickcontrols2, qtsvg, qtvirtualkeyboard, qtgraphicaleffects
+```
+cd qtimageformats
+sudo ~/raspi/qt5/bin/qmake -r
+sudo make
+sudo make install
+```
+
+Note config specifically for qtvirtualkeyboard, qtmultimedia 
+qtvirtualkeyboard: `: ~/raspi/qt5/bin/qmake CONFIG+="lang-ar_AR lang-da_DK lang-de_DE lang-en_GB lang-es_ES lang-fa_FA lang-fi_FI lang-fr_FR lang-hi_IN lang-it_IT lang-ja_JP lang-ko_KR lang-nb_NO lang-pl_PL lang-pt_PT lang-ru_RU lang-sv_SE lang-zh_CN lang-zh_TW"`
+qtmultimedia: `~/raspi/qt5/bin/qmake -r GST_VERSION=1.0`
+After installing is done, we need to update for qt5pi
+```
+rsync -avz --rsync-path="sudo rsync" qt5pi pi@192.168.1.180:/usr/local
+```
+
+### Config on QtCreator
+After install QtCreator, we need to create new kit for compiler:
+#### Compiler C/C++:
+```
+/home/longnm/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++
+/home/longnm/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc
+```
+#### QT Version
+```
+~/raspi/qt5/bin/qmake
+```
+
+### Create filemake and send to machine
+
+```
+cd {name code folder}
+/home/hangoclinh/raspi/qt5/bin/qmake
+make
+scp {name project} pi@192.168.1.180:/home/pi/
+```
 
