@@ -96,9 +96,10 @@ sudo make
 sudo make install
 ```
 
-Note config specifically for qtvirtualkeyboard, qtmultimedia 
-qtvirtualkeyboard: `: ~/raspi/qt5/bin/qmake CONFIG+="lang-ar_AR lang-da_DK lang-de_DE lang-en_GB lang-es_ES lang-fa_FA lang-fi_FI lang-fr_FR lang-hi_IN lang-it_IT lang-ja_JP lang-ko_KR lang-nb_NO lang-pl_PL lang-pt_PT lang-ru_RU lang-sv_SE lang-zh_CN lang-zh_TW"`
-qtmultimedia: `~/raspi/qt5/bin/qmake -r GST_VERSION=1.0`
+Note config specifically for qtvirtualkeyboard:
+`: ~/raspi/qt5/bin/qmake CONFIG+="lang-ar_AR lang-da_DK lang-de_DE lang-en_GB lang-es_ES lang-fa_FA lang-fi_FI lang-fr_FR lang-hi_IN lang-it_IT lang-ja_JP lang-ko_KR lang-nb_NO lang-pl_PL lang-pt_PT lang-ru_RU lang-sv_SE lang-zh_CN lang-zh_TW"`
+qtmultimedia:
+`~/raspi/qt5/bin/qmake -r GST_VERSION=1.0`
 #### 1.4.2 Update pi
 After installing is done, we need to update for qt5pi
 ```
